@@ -6,16 +6,21 @@
         xmlns:local="clr-namespace:InterfaceElemente"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
+    <Window.Resources> <!-- Stellt zusätzliche Ressourcen für dieses Fenster bereit -->
+        <Style TargetType="Button"> <!-- Stellt Einstellungen für alle Button bereit -->
+            <Setter Property="Margin" Value="3"/> <!-- Setzt ein Property bei allen Buttons auf einen Wert -->
+        </Style>
+    </Window.Resources>
+    <Grid> <!-- Erstellt eine Tabellarische ausrichtung -->
+        <Grid.ColumnDefinitions> <!-- Liste an Einstellungen für jede Spalte -->
+            <ColumnDefinition Width="20"/> <!-- Spalten werden ab 0 gezählt. Spalte 0 hat eine Breite von 20 -->
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
+        <Grid.RowDefinitions> <!-- Liste an Einstellungen für jede Zeile -->
             <RowDefinition Height="20" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*" /> <!-- * bedeutet maximale ausbreitung, auto bedeutet minimale ausbreitung -->
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Frame x:Name="frmContent"
@@ -24,24 +29,22 @@
                Grid.Row="1"
                HorizontalAlignment="Stretch"
                VerticalAlignment="Stretch"
-               NavigationUIVisibility="Hidden"/>
-        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
-            <Button x:Name="btnPageA"
-                Content="Seite A"
-                Click="btnPageA_Click"/>
-            <Button x:Name="btnPageB"
-                Content="Seite B"
-                Click="btnPageB_Click"/>
-            <Button x:Name="btnPageC"
-                Content="Seite C" Click="btnPageC_Click"/>
-            <Button x:Name="btnPageD"
-                Content="Seite D" Click="btnPageD_Click"/>
-            <Button x:Name="btnPageE"
-                Content="Seite E" Click="btnPageE_Click"/>
-            <Button x:Name="btnPageF"
-                Content="Seite F" Click="btnPageF_Click"/>
+               NavigationUIVisibility="Hidden"/> <!-- Frame wird später eine Page aufnehmen -->
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Grid.Column="1"> <!-- Positioniert alle enthaltenen Objekte untereinander, nutzt dabei den Platz den Zeile 1 und Spalte 1 bereitstellt maximal aus. -->
+            <Button Content="Seite A"
+                    Click="btnPageA_Click"/> <!-- Erstellt einen Button mit der Aufschrift "Seite A". Click stellt ein welche Methode beim Draufklicken gestartet werden soll -->
+            <Button Content="Seite B"
+                    Click="btnPageB_Click"/> <!-- Namen sind optional únd nur nötig wenn der Button selbst manipuliert werden soll -->
+            <Button Content="Seite C" 
+                    Click="btnPageC_Click"/>
+            <Button Content="Seite D" 
+                    Click="btnPageD_Click"/>
+            <Button Content="Seite E" 
+                    Click="btnPageE_Click"/>
+            <Button Content="Seite F" 
+                    Click="btnPageF_Click"/>
         </StackPanel>
-
-
     </Grid>
 </Window>
