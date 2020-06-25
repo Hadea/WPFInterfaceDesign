@@ -1,0 +1,70 @@
+﻿<Page x:Class="InterfaceElemente.PageA"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InterfaceElemente"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="400"
+      Title="PageA">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+
+            <TextBlock 
+            HorizontalAlignment="Left" 
+            Text="Seite A" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top"
+/>
+            <Button x:Name="btnNextPage" Click="btnNextPage_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Stretch="Uniform" Source="/JackDorsey.jpg"  />
+                    <Label Content="nächste Seite" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
+            <TabItem Header="Erstes Tab">
+                <Grid Background="#999999">
+                    <GroupBox x:Name="groupBox" Header="GroupBox">
+                        <StackPanel Orientation="Vertical">
+                            <RadioButton x:Name="rbAlpha"
+                                         Content="Alpha"
+                                         HorizontalAlignment="Left"
+                                         GroupName="Fangfrage"/>
+                            <RadioButton x:Name="rbBravo"
+                                         Content="Bravo"
+                                         HorizontalAlignment="Left"
+                                         GroupName="Fangfrage"/>
+                            <RadioButton x:Name="rbCharly"
+                                         Content="Charly"
+                                         HorizontalAlignment="Left"
+                                         GroupName="Fangfrage"/>
+                            <RadioButton x:Name="rbDelta"
+                                         Content="Delta"
+                                         HorizontalAlignment="Left"
+                                         GroupName="Fangfrage"/>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Zweites Tab">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Page>
