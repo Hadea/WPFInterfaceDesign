@@ -21,6 +21,7 @@
         <Grid.RowDefinitions> <!-- Liste an Einstellungen für jede Zeile -->
             <RowDefinition Height="20" />
             <RowDefinition Height="*" /> <!-- * bedeutet maximale ausbreitung, auto bedeutet minimale ausbreitung -->
+            <RowDefinition Height="30" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Frame x:Name="frmContent"
@@ -46,5 +47,10 @@
             <Button Content="Seite F" 
                     Click="btnPageF_Click"/>
         </StackPanel>
+        <Button x:Name="btnQuit"
+                Content="Beenden"
+                Grid.Column="1"
+                Grid.Row="2"
+                Click="btnQuit_Click"/>
     </Grid>
 </Window>

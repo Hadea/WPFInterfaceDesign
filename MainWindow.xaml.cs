@@ -55,5 +55,10 @@ namespace InterfaceElemente
         {
             frmContent.NavigationService.Navigate(new PageF());
         }
+
+        private void btnQuit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
