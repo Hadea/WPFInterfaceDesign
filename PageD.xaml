@@ -7,30 +7,60 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageD">
+    <!-- Einstellungen die nur für diese Page gelten -->
     <Page.Resources>
+        <!-- Visuelle einstellungen nur für Objekte vom Type Button-->
         <Style TargetType="Button">
+            <!-- Höhe wird für alle Button gesetzt -->
             <Setter Property="Height" Value="30" />
+            <!-- Eine eigene Vorlage für Buttons -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <!-- Background setzt die Hintergrundfarbe des Buttons, Borderbrush die Rahmenfarbe -->
+                        <Border Background="Gray" BorderBrush="Black" BorderThickness="1">
+                            <!-- Ausrichtung der Inhaltselemente (Content) der Buttons -->
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!--Liste für visuelle Einstellungen die zu gewissen Ereignissen benutzt werden sollen -->
+            <Style.Triggers>
+                <!-- Wenn die Maus über dem Button ist -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <!-- Textfarbe wird auf Weiss mit voller Deckkraft gestellt. Format ist ARGB -->
+                    <Setter Property="Foreground" Value="#ffffffff"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Page.Resources>
-    <StackPanel Orientation="Vertical">
+    <!-- Anstelle eines Grid hier ein Stackpanel da die enthaltenen Objekte nur untereinander angeordnet werden sollen -->
+    <StackPanel Orientation="Vertical" Width="100">
         <Button x:Name="btnFlipText"
                 Content="XXXX"
                 Click="btnFlipText_Click" />
+        <!-- Bei diesem button wird via code die Eigenschaft Conten bearbeitet-->
         <Button x:Name="btnFlipImage"
                 Click="btnFlipImage_Click" >
             <Image x:Name="imgFlipImage" 
                    Source="/Assets/JackDorsey.jpg"/>
+            <!-- Hier wird im Code die Sichtbarkeit des Bildes manipuliert, nicht der Button selbst -->
         </Button>
         <Button x:Name="btnFlipTextImage"
                 Click="btnFlipTextImage_Click">
             <StackPanel Orientation="Horizontal">
+                <!-- Ein Button darf nur ein direktes unterelement haben, deshalb nutzen wir ein StackPanel -->
                 <Image x:Name="imgFlipTextImage" Source="/Assets/JackDorsey.jpg" Stretch="Uniform"/>
+                <!-- Im code wird dieses element auf Collapsed gestellt -->
                 <Label x:Name="lblFlipTextImage" Content="Jack Dorsey" Visibility="Collapsed"/>
+                <!-- Dieses stellt die Eigenschaft der Sichtbarkeit gegensätzlich zu dem Element davor -->
             </StackPanel>
         </Button>
         <Button x:Name="btnFlipTextImageEmpty"
                 Click="btnFlipTextImageEmpty_Click">
             <StackPanel Orientation="Horizontal">
+                <!-- Im code gibt es nun 3 zustände, entweder ist eines der beiden Unterelemente sichtbar oder sogar beide unsichtbar-->
                 <Image x:Name="imgFlipTextImageEmpty"
                        Source="/Assets/JackDorsey.jpg"
                        Stretch="Uniform"
