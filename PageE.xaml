@@ -8,22 +8,44 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageE">
 
+    <!-- Erstellt ein Gitter andem sich die Inhaltselemente ausrichten-->
     <Grid>
         <Grid.ColumnDefinitions>
+            <!-- Eine Spalte die den gesamten verfügbaren Platz nutzen soll-->
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
+            <!-- Eine Zeile für die Steuerelemente. Auto nutzt den minimalen Platz in welchen die Unterobjekte passen -->
+            <RowDefinition Height="auto" />
+            <!-- Eine Zeile für das Grid welches die neuen Elemente enthalten soll-->
             <RowDefinition Height="*" />
-            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
+        <!-- Steuerelemente werden horizontal angeordnet-->
         <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
-            <Button x:Name="btnCreate" Content="create" Click="btnCreate_Click" />
-            <TextBox x:Name="tbX" Width="100" />
-            <TextBox x:Name="tbY" Width="100"/>
-        </StackPanel>
-        <Grid x:Name="grdGame" Grid.Row="1" Grid.Column="0">
 
-        </Grid>
+            <!-- Target stellt ein welches Control den Fokus bekommen soll wenn der eingestellte Hotkey gedrückt wird-->
+            <Label Content="_X-Achse"
+                   Target="{Binding ElementName=tbX}" />
+            <TextBox x:Name="tbX"
+                     Width="60" 
+                     KeyDown="tbAxis_KeyEnter" />
+            <Label Content="_Y-Achse" 
+                   Target="{Binding ElementName=tbY}"
+                   Margin="5 0 0 0"/>
+            <TextBox x:Name="tbY" 
+                     Width="60"
+                     KeyDown="tbAxis_KeyEnter"/>
+            <!-- Die Margin-Einstellung sagt dem Objekt wieviel abstand es halten soll.
+                mit einer Zahl: Abstände in alle Richtungen
+                mit zwei Zahlen: Horizontal und Vertikal
+                mit vier Zahlen: Links Oben Rechts Unten -->
+            <Button x:Name="btnCreate"
+                    Content="create"
+                    Click="btnCreate_Click"
+                    Width="60"
+                    Margin="5 0 0 0"/>
+        </StackPanel>
+        <!-- Erstellt und positioniert ein noch leeres Grid welches dann via code gefüllt wird. -->
+        <Grid x:Name="grdGame" Grid.Row="1" Grid.Column="0" />
     </Grid>
 </Page>
