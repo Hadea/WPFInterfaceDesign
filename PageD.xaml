@@ -7,36 +7,38 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageD">
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Button x:Name="btnFlipText" Content="XXXX" Grid.Column="0" Grid.Row="0" Click="btnFlipText_Click" />
-        <Button x:Name="btnFlipImage" Grid.Column="0" Grid.Row="1" Click="btnFlipImage_Click" >
-            <Image x:Name="imgFlipImage" Source="/JackDorsey.jpg"/>
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </Page.Resources>
+    <StackPanel Orientation="Vertical">
+        <Button x:Name="btnFlipText"
+                Content="XXXX"
+                Click="btnFlipText_Click" />
+        <Button x:Name="btnFlipImage"
+                Click="btnFlipImage_Click" >
+            <Image x:Name="imgFlipImage" 
+                   Source="/Assets/JackDorsey.jpg"/>
         </Button>
-        <Button x:Name="btnFlipTextImage" Grid.Column="0" Grid.Row="2" Click="btnFlipTextImage_Click">
+        <Button x:Name="btnFlipTextImage"
+                Click="btnFlipTextImage_Click">
             <StackPanel Orientation="Horizontal">
-                <Image x:Name="imgFlipTextImage" Source="/JackDorsey.jpg" Stretch="Uniform"/>
+                <Image x:Name="imgFlipTextImage" Source="/Assets/JackDorsey.jpg" Stretch="Uniform"/>
                 <Label x:Name="lblFlipTextImage" Content="Jack Dorsey" Visibility="Collapsed"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btnFlipTextImageEmpty" Grid.Column="0" Grid.Row="3" Click="btnFlipTextImageEmpty_Click">
+        <Button x:Name="btnFlipTextImageEmpty"
+                Click="btnFlipTextImageEmpty_Click">
             <StackPanel Orientation="Horizontal">
-                <Image x:Name="imgFlipTextImageEmpty" Source="/JackDorsey.jpg" Stretch="Uniform" Visibility="Collapsed" />
-                <Label x:Name="lblFlipTextImageEmpty" Content="Jack Dorsey" Visibility="Collapsed" />
+                <Image x:Name="imgFlipTextImageEmpty"
+                       Source="/Assets/JackDorsey.jpg"
+                       Stretch="Uniform"
+                       Visibility="Collapsed" />
+                <Label x:Name="lblFlipTextImageEmpty"
+                       Content="Jack Dorsey"
+                       Visibility="Collapsed" />
             </StackPanel>
         </Button>
-        
-
-    </Grid>
+    </StackPanel>
 </Page>
