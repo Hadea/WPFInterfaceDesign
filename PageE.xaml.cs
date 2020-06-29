@@ -19,10 +19,13 @@ namespace InterfaceElemente
     /// </summary>
     public partial class PageE : Page
     {
+        readonly Brush defaultBorderBrush; // stores the border-color at the moment of initialization 
         public PageE()
         {
             InitializeComponent();
+            defaultBorderBrush = tbY.BorderBrush;
         }
+
 
         /// <summary>
         /// Erstellt anhand der in tbX und tbY eingestellten Werte Buttons im Grid und nummeriert sie
@@ -37,30 +40,40 @@ namespace InterfaceElemente
             grdGame.Children.Clear();
 
             // auslesen der Textboxen und konvertieren in eine Ganzzahl, falls dies nicht klappt wird abgebrochen.
-            int newRows;
-            if (!int.TryParse(tbY.Text, out newRows))
+            if (!int.TryParse(tbY.Text, out int newRows))
             {
                 tbY.BorderBrush = Brushes.Red;
                 return;
             }
-            int newCols;
-            if (!int.TryParse(tbX.Text, out newCols))
+            else
+            {
+                tbY.BorderBrush = defaultBorderBrush;
+            }
+            if (!int.TryParse(tbX.Text, out int newCols))
             {
                 tbX.BorderBrush = Brushes.Red;
                 return;
+            }
+            else
+            {
+                tbX.BorderBrush = defaultBorderBrush;
             }
 
             // erstellen von RowDefinitions um später die Buttons daran auszurichten
             for (int i = 0; i < newRows; i++)
             {
-                RowDefinition rd = new RowDefinition();
-                rd.Height = new GridLength(50);
+                RowDefinition rd = new RowDefinition
+                {
+                    Height = new GridLength(50)
+                };
                 grdGame.RowDefinitions.Add(rd); // erstellte RowDefinition an die Liste der Definitionen anhängen.
             }
             for (int i = 0; i < newCols; i++)
             {
-                ColumnDefinition cd = new ColumnDefinition();
-                cd.Width = new GridLength(50);
+                ColumnDefinition cd = new ColumnDefinition
+                {
+                    Width = new GridLength(50)
+                };
                 grdGame.ColumnDefinitions.Add(cd);
             }
 
