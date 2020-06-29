@@ -7,31 +7,26 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="400"
       Title="PageB">
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
-        </Grid.RowDefinitions>
-        <TextBlock 
-            HorizontalAlignment="Left" 
-            Text="Seite B" 
-            VerticalAlignment="Top"
-            Grid.Column="1"
-            Grid.Row="1"/>
-        <StackPanel Grid.Row="2" Grid.Column="1" Width="100">
-            <TextBox x:Name="tbNutzername"/>
-            <PasswordBox x:Name="tbPasswort"/>
-            <Button x:Name="btnLogin" Content="Anmelden" Click="btnLogin_Click" />
-            <Label x:Name="lblAusgabe" />
-        </StackPanel>
-    </Grid>
+    <StackPanel Width="100">
+        <!-- Tabindex stellt die reihenfolge der Elemente ein, mit welcher man duch die Elemente navigiert -->
+        <TextBox x:Name="tbNutzername"
+                 TabIndex="1"/>
+        <!-- Erstellt ein Passwortfeld welches die Eingabe versteckt -->
+        <PasswordBox x:Name="tbPasswort"
+                     TabIndex="2"/>
+        <!-- Unterstrich _ vor einem Buchstaben in Content macht den Buchstaben mit Alt+Buchstabe ansteuerbar.
+            IsDefault stellt den Button so ein das ein Druck auf Enter diesen auslöst -->
+        <Button x:Name="btnLogin" 
+                Content="_Anmelden" 
+                TabIndex="3"
+                IsDefault="True"
+                Click="btnLogin_Click" />
+        <!-- IsCancel sellt den Button so ein das ein Druck auf ESC diesen auslöst -->
+        <Button x:Name="btnClear"
+                Content="eingaben _leeren"
+                TabIndex="4"
+                IsCancel="True"
+                Click="btnCancel_Click"/>
+        <Label x:Name="lblAusgabe" />
+    </StackPanel>
 </Page>

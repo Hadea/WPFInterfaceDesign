@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace InterfaceElemente
 {
@@ -23,9 +14,26 @@ namespace InterfaceElemente
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Gibt Nutzernamen und Passwort im Klartext in einem Label aus.
+        /// </summary>
+        /// <param name="sender">Wird ignoriert</param>
+        /// <param name="e">Wird ignoriert</param>
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             lblAusgabe.Content = "Nutzername: " + tbNutzername.Text + "\nPasswort: " + tbPasswort.Password;
+        }
+
+        /// <summary>
+        /// Entfernt die Inhalte aus den Nutzernamen und Passwortfeld.
+        /// </summary>
+        /// <param name="sender">Wird ignoriert</param>
+        /// <param name="e">Wird ignoriert</param>
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            tbNutzername.Text = String.Empty;
+            tbPasswort.Password = String.Empty;
+            lblAusgabe.Content = String.Empty;
         }
     }
 }
