@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace InterfaceElemente
+namespace WPFInterfaceElemente
 {
     public class EventData
     {
@@ -49,8 +41,7 @@ namespace InterfaceElemente
 
         private void btnLoadList_Click(object sender, RoutedEventArgs e)
         {
-            int count;
-            if (!int.TryParse(tbCount.Text, out count))
+            if (!int.TryParse(tbCount.Text, out int count))
             {
                 return;// fast exit if not convertable
             }

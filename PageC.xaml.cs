@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace InterfaceElemente
+namespace WPFInterfaceElemente
 {
     /// <summary>
     /// Interaction logic for PageC.xaml
