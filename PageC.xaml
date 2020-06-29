@@ -10,23 +10,21 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
             <RowDefinition Height="30" />
-            <RowDefinition Height="100" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <ComboBox x:Name="comboBox"
-                  Grid.Column="1"
-                  Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.Row="0"
                   HorizontalAlignment="Left"
-                  Width="120" SelectionChanged="comboBox_SelectionChanged">
+                  Width="120"
+                  SelectionChanged="comboBox_SelectionChanged">
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Item 1" />
@@ -52,20 +50,30 @@
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>
+        <!-- Die ListBox breitet sich über zwei Zeilen im Grid aus durch RowSpan
+             SelectionMode stellt ein ob einzel oder mehrfachauswahl möglich ist -->
         <ListBox x:Name="listBox"
                  Grid.Column="1"
-                 Grid.Row="2"
-                 HorizontalAlignment="Left"
+                 Grid.Row="0"
+                 Grid.RowSpan="2"
                  Height="100"
-                 VerticalAlignment="Top"
-                 Width="100"/>
-        <DatePicker Grid.Column="1"
-                    Grid.Row="3"/>
+                 Width="100"
+                 SelectionMode="Multiple"
+                 SelectionChanged="listBox_SelectionChanged">
+            <ListBoxItem Content="Hallo WeltA" />
+            <ListBoxItem Content="Hallo WeltB" />
+            <ListBoxItem Content="Hallo WeltC" />
+            <ListBoxItem Content="Hallo WeltD" />
+        </ListBox>
+        <!-- Öffnet ein Datumsfeld in dem man auswählen kann -->
+        <DatePicker x:Name="dpDate"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    CalendarClosed="dpDate_CalendarClosed"/>
         <Label x:Name="lblAusgabe"
                Content="noch nichts"
-               Grid.Column="1"
-               Grid.Row="4"/>
-
-
+               Grid.Column="0"
+               Grid.Row="2"
+               Grid.ColumnSpan="2"/>
     </Grid>
 </Page>
