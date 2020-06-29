@@ -1,0 +1,74 @@
+﻿<Page x:Class="WPFInterfaceElemente.PageG"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFInterfaceElemente"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageG">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <!-- Erstellt ein Fenster für 3D darstellungen. Hierbei wird die GPU für die Beschleunigung benutzt -->
+        <Viewport3D x:Name="vpView" Grid.Column="0" MouseMove="vpView_MouseMove">
+            <!-- Erstellen einer Kamera durch welche der Benutzer schaut -->
+            <Viewport3D.Camera>
+                <!-- Die Perspektivische Kamera skaliert weiter entferntes kleiner (normale ansicht)
+                     Alternativ könnte man eine Orthografische Kamera nehmen (Parallelprojektion)-->
+                <PerspectiveCamera x:Name="vpCamera" Position="3 3 3" LookDirection="-2 -2 -2"/>
+            </Viewport3D.Camera>
+            <!-- Containerklasse für 3D Objekte -->
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <!-- Umgebungslicht ohne Position welche die ganze Szene ausleuchtet -->
+                    <AmbientLight Color="#999999" />
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <!-- Container für selbsterstelltes 3D Objekt -->
+                    <GeometryModel3D>
+                        <GeometryModel3D.Geometry>
+                            <!-- Positionsdaten der Punkte im 3D-Raum (Vertex), deren Verbindungen (Polygon / Triangle) und die Farbe des Punktes (Texture Coordinates) -->
+                            <MeshGeometry3D Positions=" -0.5 -0.5 -0.5
+                                                         0.5 -0.5 -0.5
+                                                        -0.5  0.5 -0.5
+                                                         0.5  0.5 -0.5
+                                                        -0.5 -0.5  0.5
+                                                         0.5 -0.5  0.5
+                                                        -0.5  0.5  0.5  
+                                                         0.5  0.5  0.5"
+                                            TriangleIndices="2 3 1  2 1 0  7 1 3  7 5 1  6 5 7  6 4 5  6 2 0  2 0 4  2 7 3  2 6 7  0 1 5  0 5 4"
+                                            TextureCoordinates="1 1  1 1  1 1  1 1  0 0  0 0  0 0  0 0"/>
+                        </GeometryModel3D.Geometry>
+                        <!-- Das Matreal (Shader) für das 3D Objekt. -->
+                        <GeometryModel3D.Material>
+                            <DiffuseMaterial>
+                                <!-- Container für direkte Farben falls keine Textur verwendet wird -->
+                                <DiffuseMaterial.Brush>
+                                    <!-- Ein Farbverlauf zwischen 3 Farben, die Farben werden anhand von Offset auf einer Linie positioniert und dazwischen via Prozentrechnung die Farbe gemischt -->
+                                    <LinearGradientBrush StartPoint="0 0" EndPoint="1 1" >
+                                        <GradientStop Color="Aquamarine" Offset="0"/>
+                                        <GradientStop Color="Beige" Offset="0.5"/>
+                                        <GradientStop Color="DarkKhaki" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </DiffuseMaterial.Brush>
+                            </DiffuseMaterial>
+                        </GeometryModel3D.Material>
+                    </GeometryModel3D>
+                </ModelVisual3D.Content>
+                <ModelVisual3D.Transform>
+                    <RotateTransform3D>
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D x:Name="vpRotation" Axis="1 0 0" />
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                </ModelVisual3D.Transform>
+            </ModelVisual3D>
+        </Viewport3D>
+    </Grid>
+</Page>
