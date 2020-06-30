@@ -34,19 +34,19 @@
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
                     Grid.Column="1"> <!-- Positioniert alle enthaltenen Objekte untereinander, nutzt dabei den Platz den Zeile 1 und Spalte 1 bereitstellt maximal aus. -->
-            <Button Content="Seite A"
+            <Button Content="Seite A Tabs"
                     Click="btnPageA_Click"/> <!-- Erstellt einen Button mit der Aufschrift "Seite A". Click stellt ein welche Methode beim Draufklicken gestartet werden soll -->
-            <Button Content="Seite B"
+            <Button Content="Seite B Login"
                     Click="btnPageB_Click"/> <!-- Namen sind optional únd nur nötig wenn der Button selbst manipuliert werden soll -->
-            <Button Content="Seite C" 
+            <Button Content="Seite C Auswahl" 
                     Click="btnPageC_Click"/>
-            <Button Content="Seite D" 
+            <Button Content="Seite D Buttons" 
                     Click="btnPageD_Click"/>
-            <Button Content="Seite E" 
+            <Button Content="Seite E Spielfeld" 
                     Click="btnPageE_Click"/>
-            <Button Content="Seite F" 
+            <Button Content="Seite F Log" 
                     Click="btnPageF_Click"/>
-            <Button Content="Seite G" 
+            <Button Content="Seite G 3D Würfel" 
                     Click="btnPageG_Click"/>
         </StackPanel>
         <Button x:Name="btnQuit"
