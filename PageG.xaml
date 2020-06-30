@@ -64,6 +64,7 @@
                 <ModelVisual3D.Transform>
                     <RotateTransform3D>
                         <RotateTransform3D.Rotation>
+                            <!-- Erstellt eine Rotation auf die wir im Code zugreifen können. Die Achsangaben sind X Y Z  -->
                             <AxisAngleRotation3D x:Name="vpRotation" Axis="1 0 0" />
                         </RotateTransform3D.Rotation>
                     </RotateTransform3D>

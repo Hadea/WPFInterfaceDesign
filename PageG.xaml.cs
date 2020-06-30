@@ -1,9 +1,8 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace WPFInterfaceElemente
 {
+
     /// <summary>
     /// Interaction logic for PageG.xaml
     /// </summary>
