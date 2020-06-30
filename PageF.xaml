@@ -8,18 +8,38 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageF">
 
+    <!-- Ordnet die Unterobjekte vertikal an in der reihenfolge wie sie aufgeführt werden-->
     <StackPanel>
-        <TextBox x:Name="tbCount" Width="50"/>
-        <Button x:Name="btnLoadList" Content="Daten Laden" Width="100" Click="btnLoadList_Click"/>
-        <ListView x:Name="lbContent" Height="400" Width="400">
+        <TextBox x:Name="tbCount"
+                 Width="50"/>
+        <Button x:Name="btnLoadList"
+                IsDefault="True"
+                Content="_Daten Laden"
+                Width="100" 
+                Click="btnLoadList_Click"/>
+        <!-- Erstellt eine List View die bequem daten in spalten sortiert  -->
+        <ListView x:Name="lbContent"
+                  Height="150"
+                  Width="300" 
+                  SelectionChanged="lbContent_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Zeitpunkt" Width="150" DisplayMemberBinding="{Binding Time}"/>
-                    <GridViewColumn Header="Kommentar" Width="200" DisplayMemberBinding="{Binding Text}"/>
-                    <GridViewColumn Header="Wert" Width="50" DisplayMemberBinding="{Binding Amount}"/>
+                    <!-- Einstellungen zu den Spalten welche dann mit der List<Event> befüllt werden, es müssen nicht alle Daten gezeigt/gebunden werden. -->
+                    <GridViewColumn Header="Zeitpunkt"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding Time}"/>
+                    <GridViewColumn Header="Wert"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding Amount}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <!-- ScrollViewer bietet die möglichkeit Scrollleisten anzuzeigen falls ein Unterobjekt zu groß wird
+            Die Leisten zum scrollen können dabei u.a. automatisch auftauchen oder wie hier immer sichtbar sein.-->
+        <ScrollViewer VerticalScrollBarVisibility="Visible"
+                      Height="180">
+            <!-- Die Textbox zeigt nach dem Auswählen die entsprechenden Inhalte aus der List-->
+            <TextBlock x:Name="tbDetails" />
+        </ScrollViewer>
     </StackPanel>
 </Page>
