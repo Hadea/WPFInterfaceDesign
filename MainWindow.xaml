@@ -48,6 +48,8 @@
                     Click="btnPageF_Click"/>
             <Button Content="Seite G 3D Würfel" 
                     Click="btnPageG_Click"/>
+            <Button Content="Seite H Timer" 
+                    Click="btnPageH_Click"/>
         </StackPanel>
         <Button x:Name="btnQuit"
                 Content="Beenden"

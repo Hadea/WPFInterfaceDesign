@@ -52,5 +52,12 @@ namespace WPFInterfaceElemente
         {
             frmContent.NavigationService.Navigate(new PageG());
         }
+
+
+
+        private void btnPageH_Click(object sender, RoutedEventArgs e)
+        {
+            frmContent.NavigationService.Navigate(new PageH());
+        }
     }
 }
