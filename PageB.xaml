@@ -7,8 +7,17 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="400"
       Title="PageB">
-    <StackPanel Width="100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <!-- Tabindex stellt die reihenfolge der Elemente ein, mit welcher man duch die Elemente navigiert -->
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            
         <TextBox x:Name="tbNutzername"
                  TabIndex="1"/>
         <!-- Erstellt ein Passwortfeld welches die Eingabe versteckt -->
@@ -28,5 +37,16 @@
                 IsCancel="True"
                 Click="btnCancel_Click"/>
         <Label x:Name="lblAusgabe" />
-    </StackPanel>
+        </StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="1" Margin="5" TextWrapping="Wrap">
+            Diese seite Zeigt wie mit Textboxen, Passwortfeldern und dazugehörigen Buttons gearbeitet wird.<LineBreak/>
+            Die PasswortBox versteckt die Eingabe hinter Punkten, ist aber im Code normal auslesbar.<LineBreak/>
+            Die Buttons haben mit "IsDefault" und "IsCancel" Hotkeys bekommen.<LineBreak/>
+            - Die Enter-Taste löst den Button mit "IsDefault" aus als ob er geklickt wurde.<LineBreak/>
+            - Die Esc-Taste löst den Button mit dem Property "IsCancel" aus.<LineBreak/>
+            Die Aufschrift des Buttons hat einen Unterstrich bekommen welches den folgenden Buchstaben zu einem Hotkey macht.<LineBreak/>
+            - Alt+A löst dadurch auch den Anmelden-Button aus.<LineBreak/>
+            - Alt+L löst das leeren der Felder aus
+        </TextBlock>
+    </Grid>
 </Page>
