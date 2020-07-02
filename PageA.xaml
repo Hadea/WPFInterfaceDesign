@@ -5,38 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPFInterfaceElemente"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="400"
+      d:DesignHeight="300" d:DesignWidth="600"
       Title="PageA">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="30" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
 
-            <TextBlock 
-            HorizontalAlignment="Left" 
-            Text="Seite A" 
-            TextWrapping="Wrap" 
-            VerticalAlignment="Top"
-/>
-            <Button x:Name="btnNextPage" Click="btnNextPage_Click" >
-                <StackPanel Orientation="Horizontal">
-                    <Image Stretch="Uniform" Source="/JackDorsey.jpg"  />
-                    <Label Content="nächste Seite" />
-                </StackPanel>
-            </Button>
-        </StackPanel>
-        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
+        <TabControl x:Name="tabControl" Grid.Column="0" Grid.Row="0">
             <TabItem Header="Erstes Tab">
                 <Grid Background="#999999">
                     <GroupBox x:Name="groupBox" Header="GroupBox">
@@ -57,6 +38,12 @@
                                          Content="Delta"
                                          HorizontalAlignment="Left"
                                          GroupName="Fangfrage"/>
+                            <Button x:Name="btnNextPage" Click="btnNextPage_Click" Width="150" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="nächste Seite" />
+                                    <Image Stretch="Uniform" Source="/Assets/JackDorsey.jpg" Width="50"  />
+                                </StackPanel>
+                            </Button>
                         </StackPanel>
                     </GroupBox>
                 </Grid>
@@ -65,6 +52,11 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-
+        <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Margin="5" >
+            Diese Seite demonstriert die Verwendung von TabControl. Die Tabs werden dabei gleichzeitig geladen und bleiben immer im Hintergrund aktiv. Dadurch bleiben auch die Werte aller Variablen erhalten.<LineBreak/>
+            Die Groupbox fasst Elemente zu einer Gruppe zusammen welcher man eine Überschrift geben kann.<LineBreak/>
+            Radiobuttons sind ideal wenn man ein Element aus einer Auswahl selektieren soll. Sobald die RadioButtons zu einer Gruppe zusammengefasst sind organisieren sie das abwählen untereinander selbst.<LineBreak/>
+            Der Button "nächste Seite" demonstriert wie von einer Page auf eine andere Page gewechselt wird.
+        </TextBlock>
     </Grid>
 </Page>
