@@ -50,6 +50,8 @@
                     Click="btnPageG_Click"/>
             <Button Content="Seite H Timer" 
                     Click="btnPageH_Click"/>
+            <Button Content="Seite I Browser" 
+                    Click="btnPageI_Click"/>
         </StackPanel>
         <Button x:Name="btnQuit"
                 Content="Beenden"
