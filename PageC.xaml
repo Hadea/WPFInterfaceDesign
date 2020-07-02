@@ -11,8 +11,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
@@ -28,25 +28,25 @@
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Item 1" />
-                    <CheckBox IsChecked="True"/>
+                    <Image Source="/Assets/JackDorsey.jpg" Height="25" Stretch="Uniform" />
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Item 2" />
-                    <CheckBox IsChecked="True"/>
+                    <Image Source="/Assets/JackDorsey.jpg" Height="25" Stretch="Uniform" />
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem IsSelected="True">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Item 3" />
-                    <CheckBox IsChecked="True"/>
+                    <Image Source="/Assets/JackDorsey.jpg" Height="25" Stretch="Uniform" />
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Item 4" />
-                    <CheckBox IsChecked="True"/>
+                    <Image Source="/Assets/JackDorsey.jpg" Height="25" Stretch="Uniform" />
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>
@@ -67,13 +67,19 @@
         </ListBox>
         <!-- Öffnet ein Datumsfeld in dem man auswählen kann -->
         <DatePicker x:Name="dpDate"
-                    Grid.Column="2"
-                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.Row="1"
                     CalendarClosed="dpDate_CalendarClosed"/>
         <Label x:Name="lblAusgabe"
                Content="noch nichts"
                Grid.Column="0"
                Grid.Row="2"
                Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" Margin="5" Grid.RowSpan="3" TextWrapping="Wrap">
+            Diese Seite demonstriert die Verwendung von mehreren Auswahl-Controls.<LineBreak/>
+            ComboBox ist dafür gedacht platzsparend einen Wert aus einer Menge an Werten zu selektieren.<LineBreak/>
+            DatePicker wählt ein Datum aus. Zur Auswahl wird ein Kalender geöffnet auf dem der Nutzer bequem einen Tag auswählen kann.<LineBreak/>
+            ListBox bietet eine simple Möglichkeit einen oder mehrere Einträge aus einer Menge an Einträgen auszuwählen.
+        </TextBlock>
     </Grid>
 </Page>
