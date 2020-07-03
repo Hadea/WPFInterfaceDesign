@@ -27,8 +27,9 @@ namespace WPFInterfaceElemente
                 {
                     tickrate = value;
                     timer.Stop();
-                    timer.Interval = TimeSpan.FromSeconds(tickrate/100);
+                    timer.Interval = TimeSpan.FromMilliseconds(tickrate);
                     timer.Start();
+                    lblTickRate.Content = tickrate;
                 }
             }
         }
@@ -37,6 +38,7 @@ namespace WPFInterfaceElemente
         public PageH()
         {
             InitializeComponent();
+            DataContext = this;
             leftActive = true;
             brushInitial = raLeft.Fill;
             brushActive = Brushes.Red;
