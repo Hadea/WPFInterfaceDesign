@@ -52,6 +52,8 @@
                     Click="btnPageH_Click"/>
             <Button Content="Seite I Browser" 
                     Click="btnPageI_Click"/>
+            <Button Content="Seite J Binding" 
+                    Click="btnPageJ_Click"/>
         </StackPanel>
         <Button x:Name="btnQuit"
                 Content="Beenden"

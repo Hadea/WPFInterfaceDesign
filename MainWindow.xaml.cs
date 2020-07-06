@@ -64,5 +64,9 @@ namespace WPFInterfaceElemente
         {
             frmContent.NavigationService.Navigate(new PageI());
         }
+        private void btnPageJ_Click(object sender, RoutedEventArgs e)
+        {
+            frmContent.NavigationService.Navigate(new PageJ());
+        }
     }
 }
