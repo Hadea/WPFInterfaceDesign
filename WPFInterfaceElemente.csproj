@@ -11,6 +11,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Assets\northwindEF.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Assets\JackDorsey.jpg" />
   </ItemGroup>
 
