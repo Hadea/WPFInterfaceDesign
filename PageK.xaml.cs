@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.ObjectModel;
 using System.Data.SQLite;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPFInterfaceElemente
 {
@@ -21,32 +10,31 @@ namespace WPFInterfaceElemente
     /// </summary>
     public partial class PageK : Page
     {
-        public ObservableCollection<string> ResponseList { get; set; }
+        public ObservableCollection<string> ResponseList { get; set; } //die Collection welche die Daten aus der Datenbank aufnehmen soll
         public PageK()
         {
             InitializeComponent();
-            ResponseList = new ObservableCollection<string>();
-            DataContext = this;
-            lvResponse.ItemsSource = ResponseList;
+            ResponseList = new ObservableCollection<string>(); // beim Start des Programms wird eine neue Collection erstellt und kann später durch die Datenbank befüllt werden
+            lvResponse.ItemsSource = ResponseList; // verbindet die ListView welche im XAML erstellt wurde mit der Collection. Da diese Observable ist werden einfüge und löschoperationen auch dem GUI mitgeteilt.
         }
 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {
-            SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder();
-            builder.DataSource = @".\Assets\northwindEF.db";
-            builder.Version = 3;
+            SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder(); // Der Stringbuilder hilft dabei den connectionstring zu erstellen falls man unsicher ist bei der Erstellung.
+            builder.DataSource = @".\Assets\northwindEF.db"; // Pfad zu der Datenbank, hier ist er relativ zur .exe Datei angegeben. Im Projekt muss die Datenbank-Datei auf Copy gestellt werden damit sie auch im Zielordner der .exe Datei ankommt.
+            builder.Version = 3; // Version der Datenbankdatei. Falls unbekannt einfach die Datei mit einem Text-Editor öffnen und nachschauen.
 
-            using (SQLiteConnection sqlConnection = new SQLiteConnection(builder.ToString()))
+            using (SQLiteConnection sqlConnection = new SQLiteConnection(builder.ToString())) // Bereitet die Verbindung mit der Datenbank vor anhand der Informationen aus dem connectionstring
             {
-                sqlConnection.Open();
-                SQLiteCommand sqlCommand = sqlConnection.CreateCommand();
-                sqlCommand.CommandText = "select LastName from Employees;";
-                using (SQLiteDataReader sqlResponse = sqlCommand.ExecuteReader())
+                sqlConnection.Open(); // startet die Verbindung
+                SQLiteCommand sqlCommand = sqlConnection.CreateCommand(); // Bereitet ein neues SQL-Kommando vor passend auf die Datenbankverbindung
+                sqlCommand.CommandText = "select LastName from Employees;"; // Der SQL befehl.
+                using (SQLiteDataReader sqlResponse = sqlCommand.ExecuteReader()) // Befehl wird an die Datenbank gesendet und eine rückgabe in tabellenform wird erwartet
                 {
-                    ResponseList.Clear();
-                    while (sqlResponse.Read())
+                    ResponseList.Clear(); // alle alten Einträge aus Sammlung entfernen
+                    while (sqlResponse.Read()) // Solange noch Zeilen in der antwort vom Datenbankserver stehen weiterlesen
                     {
-                        ResponseList.Add(sqlResponse.GetString(0));
+                        ResponseList.Add(sqlResponse.GetString(0)); // Zeileninhalt in die Collection einfügen.
                     }
                 }
             }
