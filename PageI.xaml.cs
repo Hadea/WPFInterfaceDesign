@@ -28,21 +28,16 @@ namespace WPFInterfaceElemente
 
         private void btnGo_Click(object sender, RoutedEventArgs e)
         {
-
             if (!rolled)
             {
                 Uri zielAdresse = new Uri("https://www.youtube.com/watch?v=oHg5SJYRHA0", UriKind.Absolute);
                 meinWebBrowser.Navigate(zielAdresse);
                 rolled = true;
-
             }
             else
             {
                 meinWebBrowser.Navigate("about:blank");
             }
         }
-
-
-
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using System.Data.SQLite;
+using System.Data.SQLite; // Namespace wird über das Package "System.Data.SQLite.Core" bereitgestellt. Das Core am ende besagt das es nur die Basisfunkitonalität bereitstellt ohne Entity Framework oder LINQ.
 using System.Windows;
 using System.Windows.Controls;
 
